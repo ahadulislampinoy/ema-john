@@ -1,14 +1,7 @@
+// note: This is file is provided by phero
 // use local storage to manage cart data
 const addToDb = id =>{
-    let shoppingCart = {};
-
-    //get the shopping cart from local storage
-    const storedCart = localStorage.getItem('shopping-cart');
-    if(storedCart){
-        shoppingCart = JSON.parse(storedCart);
-    }
-
-    // add quantity
+// add quantity
     const quantity = shoppingCart[id];
     if(quantity){
         const newQuantity = quantity + 1;
@@ -18,6 +11,16 @@ const addToDb = id =>{
         shoppingCart[id] = 1;
     }
     localStorage.setItem('shopping-cart', JSON.stringify(shoppingCart));
+}
+
+let shoppingCart = {};
+const getStoredCart=()=>{
+    //get the shopping cart from local storage
+    const storedCart = localStorage.getItem('shopping-cart');
+    if(storedCart){
+        shoppingCart = JSON.parse(storedCart);
+    }
+    return shoppingCart
 }
 
 const removeFromDb = id =>{
@@ -36,7 +39,9 @@ const deleteShoppingCart = () =>{
 }
 
 export {
-    addToDb, 
+    addToDb,
+    getStoredCart,
     removeFromDb,
-    deleteShoppingCart
-}
+    deleteShoppingCart,
+};
+

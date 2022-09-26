@@ -1,6 +1,11 @@
+.cart {
+  position: sticky;
+  top: 0;
+}
 .cart-heading {
   font-size: 25px;
   font-weight: 500;
+  padding: 20px 0;
 }
 .grand-total {
   font-size: 21px;
